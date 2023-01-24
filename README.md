@@ -61,14 +61,22 @@ The processor was designed to support the following instructions:
 
  <table>
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>Instruction</th>
+    <th>T0</th>
+    <th>T1</th>
+    <th>T2</th>
+    <th>T3</th>
+    <th>T4</th>
+    <th>T5</th>
+    <th>T6</th>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
+    <td>mv</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b></td>
+    <td>Wait Cycle</td>  
+    <td>Controller reading</br>Write on Rx</br><b>RegBankWrite</b></br><b>Select Ry</b></td> 
+    <td>Show the output</br><b>PcIncrement</b></br><b>Done</b></td>
   </tr>
   <tr>
     <td>Centro comercial Moctezuma</td>
