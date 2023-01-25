@@ -6,11 +6,7 @@ Multicycle processor built during the lab classes of Computer Architecture. The 
 
 
 
-
-
-
-
-
+![project_img1](https://github.com/Francis1408/Mulitcycle_Processor/blob/main/img/Desenho_Projeto_2.png)
 
 
 PROCESSOR: Module in charge of executing the instructions came from ROM;
@@ -23,6 +19,10 @@ EXTERNAL MUX: Module in charge of controlling the Processor input on each clock 
 ### The Processor
 
 As internal modules, the processor contains the following ones:
+
+
+
+![project_img1](https://github.com/Francis1408/Mulitcycle_Processor/blob/main/img/Desenho_Projeto.png)
 
 IR: Register that saves the current instruction;
 FSM: State Machine that controls the instructions steps. For each one, the module triggers certain signals, which will dictate what the others modules must do on that cycle;
@@ -190,3 +190,16 @@ The processor was designed to support the following instructions:
     <td>Exibe output</br><b>PcIncrement</b></br><b>Done</b></td>
   </tr>
 </table>
+
+The codification for each output of the inner Multiplexer is also displayed below:
+
+| DATA OUTPUT                   |     MUX SELECT         |    
+|-------------------------------|------------------------|
+|       Reg IR data             |       0000	           |     
+|       Reg RX data             |       0001             |   
+|       Reg RY data             |       0010             |    
+|       Counter data            |       0011             |    
+|       Reg IR Immediate data   |       0100             |    
+|       Reg IR Immediate (Top)  |       0101             |    
+|       Reg G data              |       0110             |  
+|       DIN data                |       0111             |   
