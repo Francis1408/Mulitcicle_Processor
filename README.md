@@ -79,8 +79,114 @@ The processor was designed to support the following instructions:
     <td>Show the output</br><b>PcIncrement</b></br><b>Done</b></td>
   </tr>
   <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
+    <td>mvt</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b></td>
+    <td>Wait Cycle</td> 
+    <td>Controller reading</br>Write on Rx</br><b>RegBankWrite</b></br><b>Select Ry</b></td> 
+    <td>Show the output</br><b>PcIncrement</b></br><b>Done</b></td>
+  </tr>
+  <tr>
+    <td>add</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b></td>
+    <td>Wait Cycle</td> 
+    <td>Controller reading</br>Write on A</br><b>Ain</b></br><b>Select Rx</b></td> 
+    <td>Execute operation at ALU</br>Write on G</br><b>Gin</b></br><b>Seleciona Ry</b></br><b>AddSub</b></td>
+    <td>Load data from G and write on Rx</br><b>RegBankWrite</b></td>
+    <td>Exibe output</br><b>PcIncrement</b></br><b>Done</b></td>
+  </tr>
+  <tr>
+    <td>sub</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b></td>
+    <td>Wait Cycle</td> 
+    <td>Controller reading</br>Write on A</br><b>Ain</b></br><b>Select Rx</b></td> 
+    <td>Execute operation at ALU</br>Write on G</br><b>Gin</b></br><b>Seleciona Ry</b></br><b>AddSub</b></td>
+    <td>Load data from G and write on Rx</br><b>RegBankWrite</b></td>
+    <td>Exibe output</br><b>PcIncrement</b></br><b>Done</b></td>
+  </tr>
+  <tr>
+    <td>and</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b>
+    <td>Wait Cycle</td> 
+    <td>Controller reading</br>Write on A</br><b>Ain</b></br><b>Select Rx</b></td> 
+    <td>Execute operation at ALU</br>Write on G</br><b>Gin</b></br><b>Seleciona Ry</b></br><b>Alu_and</b></td>
+    <td>Load data from G and write on Rx</br><b>RegBankWrite</b></td>
+    <td>Exibe output</br><b>PcIncrement</b></br><b>Done</b></td>
+  </tr>
+  <tr>
+    <td>ld</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b></td>
+    <td>Wait Cycle</td> 
+    <td>Controller reading</br><b>ADDR_in</b></br><b>Select Ry</b></td> 
+    <td>Send address to RAM and read data</td>
+    <td>Save value in Rx</br><b>Select_DIN</b></br><b>Ram_fetch</b></br><b>RegBankWrite</b></td>
+    <td>Exibe output</br><b>PcIncrement</b></br><b>Done</b></td>
+  </tr>
+   <tr>
+    <td>st</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b></td>
+    <td>Wait Cycle</td> 
+    <td>Controller reading</br>Write on ADDR</br><b>ADDR_in</b></br><b>Select Ry</b></td> 
+    <td>Write on DOUT</br><b>DOUT_in</b></td>
+    <td>Send data to RAM</br><b>WR_Ram</b></td>
+    <td>Exibe output</br><b>PcIncrement</b></br><b>Done</b></td>
+  </tr>
+  <tr>
+    <td>b</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b></td>
+    <td>Wait Cycle</td> 
+    <td>Controller reading</br>Write on Counter</br><b>Cont_in</b></td> 
+    <td>Exibe output</br><b>PcIncrement</b></br><b>Done</b></td>
+  </tr>
+  <tr>
+    <td>beq</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b></td>
+    <td>Wait Cycle</td> 
+    <td>Controller reading</br>Check G</br><b>f(cond) => Cont_in</b></td> 
+    <td>Exibe output</br><b>Done</b></td>
+  </tr>
+  <td>bne</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b></td>
+    <td>Wait Cycle</td> 
+    <td>Controller reading</br>Check G</br><b>f(cond) => Cont_in</b></td> 
+    <td>Exibe output</br><b>Done</b></td>
+  </tr>
+  <tr>
+    <td>B_LSL</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b></td>
+    <td>Wait Cycle</td> 
+    <td>Controller reading</br><b>Write on A </b></br><b>Ain</b></br><b>Select Rx</b></td> 
+    <td>Execute operation at ALU</br>Write on G</br><b>Barrel_Mux = 00</b></td>
+    <td>Load data from G and write on Rx</br><b>RegBankWrite</b></br><b>Done</b></td>
+    <td>Exibe output</br><b>PcIncrement</b></br><b>Done</b></td>
+  </tr>
+  <tr>
+    <td>B_LSR</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b></td>
+    <td>Wait Cycle</td> 
+    <td>Controller reading</br><b>Write on A </b></br><b>Ain</b></br><b>Select Rx</b></td> 
+    <td>Execute operation at ALU</br>Write on G</br><b>Barrel_Mux = 01</b></td>
+    <td>Load data from G and write on Rx</br><b>RegBankWrite</b></br><b>Done</b></td>
+    <td>Exibe output</br><b>PcIncrement</b></br><b>Done</b></td>
+  </tr>
+  <tr>
+    <td>B_LSR</td>
+    <td>Read instruction at ROM</td>
+    <td>Load instruction on IR <br/>Define Rx and Ry<br/><b>IRin</b><br/><b>RegBankWrite_Address</b></td>
+    <td>Wait Cycle</td> 
+    <td>Controller reading</br><b>Write on A </b></br><b>Ain</b></br><b>Select Rx</b></td> 
+    <td>Execute operation at ALU</br>Write on G</br><b>Barrel_Mux = 10</b></td>
+    <td>Load data from G and write on Rx</br><b>RegBankWrite</b></br><b>Done</b></td>
+    <td>Exibe output</br><b>PcIncrement</b></br><b>Done</b></td>
   </tr>
 </table>
